@@ -1,0 +1,115 @@
+import replit
+from random import randint
+
+
+alfabeto =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+sequencia = "01234567890123456789012345"
+lista = list()
+aposta = list()
+cont = 0
+listaR = list()
+resultado = list()
+contR = 0
+
+
+
+opcao = 0
+while opcao != 9:
+  replit.clear()
+  print(40*"*")
+  print( "  *** Avaliação Algoritmo e Lógica ***")
+  print(40*"*")
+
+  print("\n\nSelecione a Opção")
+
+  print('''\n1. Percorrer Palavra
+2. Jogo da Quina
+
+\n9. Finalizar o programa''')
+  
+
+
+ 
+
+  opcao = int(input("\nEscolha a opção a executar: "))
+  
+  if opcao == 1:
+    print(40*"=")
+
+    print("\nUTILIZE LETRAS MAIÚSCULAS")
+
+    palavra = input("\nDigite uma única palavra: ").upper()
+    
+    
+       
+    print("\n",alfabeto)
+    print(sequencia)
+   
+
+    cadeia = ""
+    cadeiaC = ""
+    for i in palavra:
+
+      cadeia = cadeia + i
+        
+      print("\nLetra da Palavra: ", i, "Posição: ", palavra.index(i)+1)
+      
+      index = alfabeto.find(i)
+
+      print("Letra Alfabeto na posição: ",index)
+
+    
+            
+      print(20*"-")
+
+  elif opcao == 2:
+
+      print('\n',40*"=")
+      print("\n    Quina - Concurso 2711 - 27/11/2021")
+      print('\n',40*"=")
+
+      
+      while True:
+
+          numero = randint(1,60)
+          if numero not in lista:
+            lista.append(numero)
+            cont += 1
+            if cont >= 6:
+              break
+          lista.sort()
+          aposta.append(lista[:])
+          lista.clear()
+        
+      print("\nAposta....:",aposta)
+      
+
+      while True:
+          numero = randint(1,60)
+          if numero not in listaR:
+              listaR.append(numero)
+              contR += 1
+          if contR >= 6:
+            break
+          listaR.sort()
+          resultado.append(listaR[:])
+          listaR.clear()
+        
+      print("\nResultado..: ", resultado)
+
+     
+      
+     
+       
+      
+  elif opcao == 9:
+    print('\nFinalizando...')
+    
+  else:
+      print('\n>>>>Opção inválida - Tente novamente!')
+
+  
+  input("\nTecle enter para continuar")  
+print(">>>>Fim do programa!")
+
+
